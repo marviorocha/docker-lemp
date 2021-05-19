@@ -1,6 +1,5 @@
 version: '3'
 services:
-
     php:
         image: atillay/lemp-php:7.3 # Also available : atillay/lemp-php:7.2
         env_file:
@@ -8,7 +7,6 @@ services:
         volumes:
             - ./docker/php/php.ini:/usr/local/etc/php/php.ini
             - .:/var/www:cached
-
     nginx:
         image: atillay/lemp-nginx
         ports:
@@ -28,6 +26,7 @@ services:
         volumes:
             - ./docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
             - ./docker/db:/var/lib/mysql:cached
+   
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -40,3 +39,4 @@ services:
         image: djfarrelly/maildev
         ports:
             - ${MAILDEV_PORT}:80
+
